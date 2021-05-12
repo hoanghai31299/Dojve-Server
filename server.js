@@ -19,7 +19,7 @@ function SetupExpress() {
   const server = http.Server(app);
   const io = socketIO(server, {
     cors: {
-      origin: "https://dojve.vercel.app/",
+      origin: "https://dojve.vercel.app",
       credentials: true,
     },
   });
@@ -74,7 +74,7 @@ function ConfigureExpress(app) {
 
   app.use(cookieParser());
   const headers = {
-    origin: "https://dojve.vercel.app/",
+    origin: "https://dojve.vercel.app",
     // credentials: true,
     // method: "GET,POST,PUT,PATCH,DELETE,HEAD",
   };
