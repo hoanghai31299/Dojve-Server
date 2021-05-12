@@ -9,7 +9,8 @@ const http = require("http");
 require("dotenv").config();
 require("./helpers/passport.setup");
 const { connectDB } = require("./models");
-
+const clientOrigin = process.env.ORIGIN_CLIENT || "https://dojve.vercel.app";
+console.log(clientOrigin);
 connectDB();
 
 const app = SetupExpress();
@@ -19,7 +20,7 @@ function SetupExpress() {
   const server = http.Server(app);
   const io = socketIO(server, {
     cors: {
-      origin: "https://dojve.vercel.app",
+      origin: clientOrigin,
       credentials: true,
     },
   });
@@ -74,7 +75,7 @@ function ConfigureExpress(app) {
   app.use(
     cors({
       credentials: true,
-      origin: "https://dojve.vercel.app",
+      origin: clientOrigin,
       method: "GET,HEAD,PUT,PATCH,DELETE,POST",
     })
   );
