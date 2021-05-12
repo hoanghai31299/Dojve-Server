@@ -73,12 +73,15 @@ function ConfigureExpress(app) {
   );
 
   app.use(cookieParser());
-  const headers = {
-    origin: "https://dojve.vercel.app",
-    // credentials: true,
-    // method: "GET,POST,PUT,PATCH,DELETE,HEAD",
-  };
-  app.use(cors(headers));
+  app.use(
+    cors({
+      credentials: true,
+      origin: "https://dojve.vercel.app",
+      method: "GET,HEAD,PUT,PATCH,DELETE,POST",
+      allowedHeaders: "Content-Type, Accept, Authorization",
+      credentials: true,
+    })
+  );
   app.use(
     cookieSession({
       name: "session",
