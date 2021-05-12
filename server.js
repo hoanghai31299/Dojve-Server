@@ -31,7 +31,6 @@ function SetupExpress() {
     console.log(`Listening on port ${port}`);
   });
   ConfigureExpress(app);
-
   //setup router here bro
   app.get("/", (req, res, next) => {
     return res.send("Heroku tai tro chuong trinh nay");
@@ -71,7 +70,6 @@ function ConfigureExpress(app) {
       parameterLimit: 10000,
     })
   );
-
   app.use(cookieParser());
   app.use(
     cors({
