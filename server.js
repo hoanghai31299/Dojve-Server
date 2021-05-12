@@ -78,8 +78,6 @@ function ConfigureExpress(app) {
       credentials: true,
       origin: "https://dojve.vercel.app",
       method: "GET,HEAD,PUT,PATCH,DELETE,POST",
-      allowedHeaders: "Content-Type, Accept, Authorization",
-      credentials: true,
     })
   );
   app.use(
