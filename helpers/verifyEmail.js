@@ -1,12 +1,12 @@
 const mailer = require("nodemailer");
 
 const account = {
-  user: "thaolv210402@gmail.com",
-  pass: "ta210402",
+  user: "getthem.ecommerce@gmail.com",
+  pass: "thiet1999",
 };
 exports.sendMail = async (msg) => {
   let transporter = mailer.createTransport({
-    host: "thaolv210402@gmail.com",
+    host: "getthem.ecommerce@gmail.com",
     port: 587,
     secure: true,
     service: "Gmail",
