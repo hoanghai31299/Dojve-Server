@@ -75,8 +75,8 @@ function ConfigureExpress(app) {
   app.use(cookieParser());
   const headers = {
     origin: "*",
-    credentials: true,
-    method: "GET,POST,PUT,PATCH,DELETE,HEAD",
+    // credentials: true,
+    // method: "GET,POST,PUT,PATCH,DELETE,HEAD",
   };
   app.use(cors(headers));
   app.use(
