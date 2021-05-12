@@ -19,7 +19,7 @@ function SetupExpress() {
   const server = http.Server(app);
   const io = socketIO(server, {
     cors: {
-      origin: "http://localhost:3000",
+      origin: "*",
       credentials: true,
     },
   });
@@ -34,7 +34,7 @@ function SetupExpress() {
 
   //setup router here bro
   app.get("/", (req, res, next) => {
-    return res.send("hello");
+    return res.send("Heroku tai tro chuong trinh nay");
   });
   app.use("/auth", require("./routes/auth.route"));
   app.use("/message", require("./routes/message.route"));
@@ -74,7 +74,7 @@ function ConfigureExpress(app) {
 
   app.use(cookieParser());
   const headers = {
-    origin: "http://localhost:3000",
+    origin: "*",
     credentials: true,
     method: "GET,POST,PUT,PATCH,DELETE,HEAD",
   };
