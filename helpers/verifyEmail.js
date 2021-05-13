@@ -7,7 +7,7 @@ const account = {
 exports.sendMail = async (msg) => {
   let transporter = mailer.createTransport({
     host: "getthem.ecommerce@gmail.com",
-    port: 587,
+    port: 465,
     secure: true,
     service: "Gmail",
     auth: {
