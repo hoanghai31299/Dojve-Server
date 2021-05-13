@@ -114,11 +114,13 @@ exports.signin = async (req, res, next) => {
     res.cookie("token", token, {
       httpOnly: true,
       sameSite: "None",
+      secure: true,
       expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
     });
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       sameSite: "None",
+      secure: true,
       expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
     });
     return res.status(200).json({
@@ -206,6 +208,9 @@ exports.signinByCookie = async (req, res, next) => {
           }
         );
         res.cookie("token", token, {
+          httpOnly: true,
+          sameSite: "None",
+          secure: true,
           expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
         });
         return res.status(200).json({
