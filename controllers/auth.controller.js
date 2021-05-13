@@ -38,7 +38,8 @@ exports.signup = async (req, res, next) => {
     const token = await jwt.sign({ user }, process.env.JWT_VERIFY_MAIL_TOKEN, {
       expiresIn: "10m",
     });
-    const verifyFrontendLink = process.env.ORIGIN_FRONTEND_EMAIL;
+    const verifyFrontendLink =
+      process.env.ORIGIN_FRONTEND_EMAIL || "https://dojve.vercel.app";
     let verifylink = `${verifyFrontendLink}\/${token}`;
     await sendMail({
       from: "DOJVE",
