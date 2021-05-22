@@ -39,7 +39,7 @@ exports.signup = async (req, res, next) => {
       expiresIn: "10m",
     });
     const verifyFrontendLink =
-      process.env.ORIGIN_FRONTEND_EMAIL || "https://dojve.vercel.app";
+      process.env.ORIGIN_FRONTEND_EMAIL || "https://dojve.vercel.app/email";
     let verifylink = `${verifyFrontendLink}\/${token}`;
     await sendMail({
       from: "DOJVE",

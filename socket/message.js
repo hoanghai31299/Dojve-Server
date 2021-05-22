@@ -95,7 +95,6 @@ module.exports = function (io) {
 
 const newMessage = async (io, socket, message, callback) => {
   message.createdAt = new Date();
-  console.log("hello");
   io.to(message.to).emit("messages", {
     action: "RECEIVE",
     message,
