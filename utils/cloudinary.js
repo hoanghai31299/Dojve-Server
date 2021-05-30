@@ -39,6 +39,31 @@ module.exports = {
                 .then();
         });
     },
+    uploadSingleFile: (file) => {
+        return new Promise((resolve, rejects) => {
+            cloudinary.uploader
+                .upload(
+                    file, {
+                        folder: "Radius-E/product",
+                    },
+                    (error, result) => {
+                        if (error) {
+                            rejects(error);
+                        }
+                        if (result) {
+                            const fs = require("fs");
+                            console.log("upload successful");
+                            console.log(result.secure_url);
+                            resolve({
+                                url: result.secure_url,
+                            });
+                        }
+                    }
+                )
+                .then();
+        });
+    },
+
     uploadSingleVideo: (file) => {
         return new Promise((resolve, rejects) => {
             cloudinary.uploader

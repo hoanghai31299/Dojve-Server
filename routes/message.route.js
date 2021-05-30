@@ -10,5 +10,6 @@ route.get("/getMessageRoom/:roomId", messageController.getMessageRoom);
 route.get("/getMessages/:roomId", messageController.getMessageRoomGroup);
 route.post("/upImage", uploads.single("image"), messageController.upImage);
 route.post("/upVideo", uploads.single("image"), messageController.upVideo);
+route.post("/upFile", uploads.single("image"), messageController.upImage);
 
 module.exports = route;
