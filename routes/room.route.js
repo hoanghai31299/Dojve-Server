@@ -11,4 +11,5 @@ route.put("/kickMember/:roomId", roomController.kickMember);
 route.put("/addMember/:roomId", roomController.addMember);
 route.put("/update/:roomId", roomController.updateRoom);
 route.post("/", roomController.createRoom);
+route.post("/getImage", roomController.getImageInRoom);
 module.exports = route;
