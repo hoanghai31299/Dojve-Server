@@ -171,7 +171,9 @@ exports.upImage = async(req, res, next) => {
         let imgCloudinary;
         if (file.mimetype === "image/jpeg")
             imgCloudinary = await uploadSingle(file.content);
-        else imgCloudinary = await uploadSingleVideo(file.content);
+        else if (file.mimetype === "video/mp4")
+            imgCloudinary = await uploadSingleVideo(file.content);
+        else imgCloudinary = await uploadSingle(file.content);
         image_url = imgCloudinary.url;
         return res.status(200).json({
             error: false,
